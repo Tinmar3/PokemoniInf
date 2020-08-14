@@ -14,10 +14,16 @@ function App () {
   return (
     <Router>
       <header>
-        <nav>
-          <Link to="/">HOME</Link>
-          <Link to="/myPokemon">MY POKEMON</Link>
-        </nav>
+        <div className="container">
+          <Link to="/" className="header__ImgWrap">
+            <img src="/pokedex.png" />
+            <span>POKEDEX APP</span>
+          </Link>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/myPokemon">My Pokemon</Link>
+          </nav>
+        </div>
       </header>
       <main>
         <Switch>
