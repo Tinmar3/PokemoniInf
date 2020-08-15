@@ -1,0 +1,28 @@
+.myPokemon__List {
+    li {
+        background-color: white;
+        padding-right: 20px;
+        border-radius: 5px;
+        margin-bottom: 3px;
+        width: 400px;
+        display: flex;
+            align-items: center;
+        a {
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .myPokemon__Remove {
+            font-weight: bold;
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 26px;
+            display: block;
+            padding: 15px 0 15px 15px;
+        }
+    }
+    img {
+        margin-right: 20px;
+    }
+}

@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import PokemonDetails from './Pages/PokemonDetails/PokemonDetailsContainer'
-import MyPokemon from './Pages/MyPokemon/MyPokemon'
+import MyPokemon from './Pages/MyPokemon/MyPokemonContainer'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './Store/Reducers'

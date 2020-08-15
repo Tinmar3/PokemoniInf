@@ -1,6 +1,6 @@
-export const addToMyPokemon = name => ({
+export const addToMyPokemon = (name, imgUrl) => ({
   type: 'ADD_TO_MY_POKEMON',
-  name
+  payload: { name, imgUrl }
 })
 
 export const removeFromMyPokemon = name => ({
