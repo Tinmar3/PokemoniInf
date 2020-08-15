@@ -1,0 +1,39 @@
+.pokemonDetails {
+    h1 {
+        color: #ea0810;
+        letter-spacing: 4px;
+        margin-bottom: 60px;
+    }
+}
+
+.pokemonDetails__Wrap {
+    display: flex;
+}
+
+.pokemonDetails__Img {
+    height: 475px;
+    width: 475px;
+    margin-right: 60px;
+}
+
+.pokemonDetails__List {
+    text-transform: capitalize;
+    display: flex;
+    h5 {
+        // color: #ea0810;
+        font-size: 20px;
+    }
+    & > li {
+        padding: 0 20px;
+        span {
+            padding-left: 10px;
+            font-weight: bold;
+        }
+    }
+}
+
+.pokemonDetails__ItemList {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 20px;
+}

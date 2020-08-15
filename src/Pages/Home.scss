@@ -22,6 +22,7 @@ $height: 463px;
     flex-direction: column;
     text-transform: capitalize;
     margin-left: -5px;
+    padding-left: 30px;
     li {
         margin-bottom: 5px;
         padding: 0 5px;
@@ -50,6 +51,7 @@ $height: 463px;
 
 .pagination__List {
     display: flex;
+    margin-left: 20px;
     li {
         padding: 2px 3px;
         margin-right: 5px;
