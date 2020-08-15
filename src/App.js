@@ -6,39 +6,46 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import Home from './Pages/Home'
-import PokemonDetails from './Pages/PokemonDetails'
-import MyPokemon from './Pages/MyPokemon'
+import Home from './Pages/Home/Home'
+import PokemonDetails from './Pages/PokemonDetails/PokemonDetailsContainer'
+import MyPokemon from './Pages/MyPokemon/MyPokemon'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './Store/Reducers'
+
+const store = createStore(rootReducer)
 
 function App () {
   return (
-    <Router>
-      <header>
-        <div className="container">
-          <Link to="/" className="header__ImgWrap">
-            <img src="/pokedex.png" />
-            <span>POKEDEX APP</span>
-          </Link>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/myPokemon">My Pokemon</Link>
-          </nav>
-        </div>
-      </header>
-      <main>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/pokemonDetails/:name">
-            <PokemonDetails />
-          </Route>
-          <Route path="/myPokemon">
-            <MyPokemon />
-          </Route>
-        </Switch>
-      </main>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <header>
+          <div className="container">
+            <Link to="/" className="header__ImgWrap">
+              <img src="/pokedex.png" />
+              <span>POKEDEX APP</span>
+            </Link>
+            <nav>
+              <Link to="/">Home</Link>
+              <Link to="/myPokemon">My Pokemon</Link>
+            </nav>
+          </div>
+        </header>
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/pokemonDetails/:name">
+              <PokemonDetails />
+            </Route>
+            <Route path="/myPokemon">
+              <MyPokemon />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
+    </Provider>
   )
 }
 

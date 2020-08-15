@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
-import queryString from 'query-string'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import './PokemonDetails.scss'
 
@@ -25,21 +24,13 @@ class PokemonDetails extends Component {
         }).catch(err => {
           console.error(err)
         })
-      const { search } = this.props.location
-      if (search) {
-        this.getPokemonTypeData(queryString.parse(search).type)
-      }
     })
   }
 
-  componentDidUpdate (prevProps) {
-    const { search } = this.props.location
-    if (search !== prevProps.location.search) {
-      this.getPokemonTypeData(queryString.parse(search).type)
-    }
+  componentDidUpdate () {
     const { mainImagePresent, pokemonData } = this.state
     if (typeof mainImagePresent === 'undefined') {
-      const mainImage = pokemonData.sprites && pokemonData.sprites.front_default
+      const mainImage = pokemonData.sprites && pokemonData.sprites.other['official-artwork'].front_default
       if (mainImage) {
         this.setState({ mainImagePresent: true })
       } else if (Object.keys(pokemonData).length !== 0 && !mainImage) {
@@ -58,11 +49,15 @@ class PokemonDetails extends Component {
 
   render () {
     const { pokemonData, showLoader, mainImagePresent } = this.state
-    console.log(pokemonData)
+    const { addToMyPokemon, removeFromMyPokemon, isInMyPokemonList } = this.props
     return (
       <div className="container pokemonDetails">
         {showLoader && <div className="loader__Wrap"><div className="loader"></div></div>}
-        <h1>{ this.replaceDashWithSpace(pokemonData.name) }</h1>
+        <h1>{ this.replaceDashWithSpace(pokemonData.name) }
+          {isInMyPokemonList(pokemonData.name)
+            ? <span onClick={ () => removeFromMyPokemon(pokemonData.name) }>- Remove from My Pokemon</span>
+            : <span onClick={ () => addToMyPokemon(pokemonData.name) }>+ Add to My Pokemon</span>}
+        </h1>
         <div className="pokemonDetails__Wrap">
           {(mainImagePresent === true) &&
           <img className="pokemonDetails__Img" src={pokemonData.sprites.other['official-artwork'].front_default} alt={pokemonData.name} onLoad={this.hideLoader} /> }
