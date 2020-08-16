@@ -19,7 +19,6 @@ class PokemonDetails extends Component {
       axios.get('https://pokeapi.co/api/v2/pokemon/' + this.props.match.params.name)
         .then(res => {
           const { name, types, sprites, stats, moves, abilities } = res.data
-          console.log(res.data)
           this.setState({ pokemonData: { name, types, sprites, stats, moves, abilities } })
         }).catch(err => {
           console.error(err)
