@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import PokemonDetails from './Pages/PokemonDetails/PokemonDetailsContainer'
@@ -21,13 +21,13 @@ function App () {
       <Router>
         <header>
           <div className="container">
-            <Link to="/" className="header__ImgWrap">
+            <NavLink exact={true} to="/" className="header__ImgWrap">
               <img src="/pokedex.png" />
-              <span>POKEDEX APP</span>
-            </Link>
+              <span>POKEDEX</span>
+            </NavLink>
             <nav>
-              <Link to="/">Home</Link>
-              <Link to="/myPokemon">My Pokemon</Link>
+              <NavLink exact={true} to="/">Home</NavLink>
+              <NavLink to="/myPokemon">My Pokemon</NavLink>
             </nav>
           </div>
         </header>

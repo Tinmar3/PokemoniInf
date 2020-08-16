@@ -54,9 +54,9 @@ class PokemonDetails extends Component {
       <div className="container pokemonDetails">
         {showLoader && <div className="loader__Wrap"><div className="loader"></div></div>}
         <h1>{ this.replaceDashWithSpace(pokemonData.name) }
-          {isInMyPokemonList(pokemonData.name)
+          { isInMyPokemonList(pokemonData.name)
             ? <span onClick={ () => removeFromMyPokemon(pokemonData.name) }>- Remove from My Pokemon</span>
-            : <span onClick={ () => addToMyPokemon(pokemonData.name, pokemonData.sprites.front_default) }>+ Add to My Pokemon</span>}
+            : <span onClick={ () => addToMyPokemon(pokemonData.name, pokemonData.sprites.front_default) }>+ Add to My Pokemon</span> }
         </h1>
         <div className="pokemonDetails__Wrap">
           {(mainImagePresent === true) &&

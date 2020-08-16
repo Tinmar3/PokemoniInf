@@ -1,10 +1,5 @@
 .pokemonDetails {
     h1 {
-        color: #ea0810;
-        letter-spacing: 4px;
-        margin-bottom: 60px;
-        display: flex;
-        align-items: center;
         span {
             color: black;
             margin-left: auto;
@@ -13,7 +8,11 @@
             cursor: pointer;
             transition: color 0.3s ease;
             &:hover {
-              color: #ea0810;
+                color: #ea0810;
+            }
+            @media only screen and (max-width: 768px) {
+                font-size: 16px;
+                margin-top: 15px;
             }
         }
     }
@@ -21,6 +20,9 @@
 
 .pokemonDetails__Wrap {
     display: flex;
+    @media only screen and (max-width: 992px) {
+        flex-direction: column;
+    }
 }
 
 .pokemonDetails__Img {
@@ -30,6 +32,16 @@
     background-color: white;
     border-radius: 5px;
     padding: 5px;
+    @media only screen and (max-width: 1200px) {
+        margin-right: 35px;
+        height: 400px;
+        width: 400px;
+    }
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
 }
 
 .pokemonDetails__List {
@@ -45,6 +57,9 @@
             padding-left: 10px;
             font-weight: bold;
         }
+    }
+    @media only screen and (max-width: 768px) {
+        flex-direction: column;
     }
 }
 
