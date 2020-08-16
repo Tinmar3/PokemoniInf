@@ -11,7 +11,16 @@ const mockData = [
   }
 ]
 
-const myPokemon = (state = [], action) => {
+const pokemonList = (state = { activePagination: 1 }, action) => {
+  switch (action.type) {
+    case 'SET_PAGINATION_NUMBER':
+      return { ...state, activePagination: action.activeNumber }
+    default:
+      return state
+  }
+}
+
+const myPokemon = (state = mockData, action) => {
   switch (action.type) {
     case 'ADD_TO_MY_POKEMON':
       return [...state, { name: action.payload.name, imgUrl: action.payload.imgUrl }]
@@ -23,5 +32,6 @@ const myPokemon = (state = [], action) => {
 }
 
 export default combineReducers({
+  pokemonList,
   myPokemon
 })

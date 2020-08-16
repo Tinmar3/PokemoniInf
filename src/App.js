@@ -6,7 +6,7 @@ import {
   Route,
   NavLink
 } from 'react-router-dom'
-import Home from './Pages/Home/Home'
+import Home from './Pages/Home/HomeContainer'
 import PokemonDetails from './Pages/PokemonDetails/PokemonDetailsContainer'
 import MyPokemon from './Pages/MyPokemon/MyPokemonContainer'
 import { Provider } from 'react-redux'

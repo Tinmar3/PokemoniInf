@@ -1,3 +1,8 @@
+export const setPaginationNumber = activeNumber => ({
+  type: 'SET_PAGINATION_NUMBER',
+  activeNumber
+})
+
 export const addToMyPokemon = (name, imgUrl) => ({
   type: 'ADD_TO_MY_POKEMON',
   payload: { name, imgUrl }
