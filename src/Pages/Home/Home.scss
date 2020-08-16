@@ -57,6 +57,14 @@ $height: 670px;
     padding: 5px 10px;
     border-radius: 0 0 5px 5px;
     align-items: baseline;
+    & > span {
+        font-size: 18px;
+        cursor: pointer;
+        &.notActive {
+            pointer-events: none;
+            color: gainsboro;
+        }
+    }
     @media only screen and (max-width: 768px) {
         position: fixed;
         top: 100px;
@@ -71,22 +79,17 @@ $height: 670px;
 .home__PaginationList {
     display: flex;
     margin-left: 20px;
-    @media only screen and (max-width: 768px) {
-        margin-left: 7px;
-    }
-    @media only screen and (max-width: 450px) {
-        flex-grow: 1;
-        justify-content: space-around;
-    }
+    margin: 0 16px;
     li {
         padding: 2px 3px;
-        margin-right: 5px;
+        margin-right: 6px;
         cursor: pointer;
-        @media only screen and (max-width: 450px) {
-            margin-right: 3px;
-        }
         &.active {
             font-weight: bold;
         }
     }
+}
+
+.home__PaginationTitle {
+    margin-right: 30px;
 }

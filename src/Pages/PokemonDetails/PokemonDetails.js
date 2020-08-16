@@ -58,36 +58,36 @@ class PokemonDetails extends Component {
             : <span onClick={ () => addToMyPokemon(pokemonData.name, pokemonData.sprites.front_default) }>+ Add to My Pokemon</span> }
         </h1>
         <div className="pokemonDetails__Wrap">
-          { (mainImagePresent === true) &&
+          {(mainImagePresent === true) &&
           <img className="pokemonDetails__Img" src={ pokemonData.sprites.other['official-artwork'].front_default } alt={ pokemonData.name} onLoad={ this.hideLoader } /> }
           { (mainImagePresent === false) &&
           <img className="pokemonDetails__ImgPlacehold" src="/pokeball.png" alt="Pokemon placeholder" onLoad={ this.hideLoader } onError={ this.hideLoader } /> }
-          { !showLoader && <ul className="pokemonDetails__List">
+          {!showLoader && <ul className="pokemonDetails__List">
             { pokemonData.types && <li>
               <h5>Types</h5>
               <ul className="pokemonDetails__ItemList">{ pokemonData.types.map(typeItem =>
                 <li key={ typeItem.type.name }>{ typeItem.type.name }</li>
               ) }</ul>
-            </li> }
-            { pokemonData.stats && <li>
+            </li>}
+            {pokemonData.stats && <li>
               <h5>Stats</h5>
               <ul className="pokemonDetails__ItemList">{ pokemonData.stats.map(statsItem =>
                 <li key={ statsItem.stat.name }>{ statsItem.stat.name }<span>{ statsItem.base_stat }</span></li>
               )}</ul>
-            </li> }
-            { pokemonData.abilities && <li>
+            </li>}
+            {pokemonData.abilities && <li>
               <h5>Abilities</h5>
               <ul className="pokemonDetails__ItemList">{ pokemonData.abilities.map(abilitiesItem =>
                 <li key={ abilitiesItem.ability.name }>{ this.replaceDashWithSpace(abilitiesItem.ability.name) }</li>
               )}</ul>
-            </li> }
-            { pokemonData.moves && <li>
+            </li>}
+            {pokemonData.moves && <li>
               <h5>Moves</h5>
               <ul className="pokemonDetails__ItemList"> {pokemonData.moves.map(movesItem =>
                 <li key={ movesItem.move.name }>{ this.replaceDashWithSpace(movesItem.move.name) }</li>
               )}</ul>
-            </li> }
-          </ul> }
+            </li>}
+          </ul>}
         </div>
       </div>
     )

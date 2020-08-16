@@ -16,11 +16,17 @@ export default class Home extends Component {
     }
   }
 
+  get preparePaginationList () {
+    const { paginationList } = this.state
+    const { activePagination } = this.props
+    return paginationList.filter(item => Math.abs(activePagination - item) <= 1)
+  }
+
   componentDidMount () {
     this.setState({ showLoader: true }, () => {
       this.apiListingBuilder()
         .then(res => {
-          this.setState({ pokemonItems: res.data.results, paginationList: this.getPaginationList(res.data.count), showLoader: false })
+          this.setState({ pokemonItems: res.data.results, paginationList: this.getFullPaginationList(res.data.count), showLoader: false })
         }).catch(err => {
           console.error(err)
         })
@@ -48,7 +54,7 @@ export default class Home extends Component {
     return axios.get('https://pokeapi.co/api/v2/pokemon', { params: params })
   }
 
-  getPaginationList (pokemonItemsCount) {
+  getFullPaginationList (pokemonItemsCount) {
     const pagesNumber = Math.ceil(pokemonItemsCount / ITEMS_LIMIT_PER_PAGE)
     const paginationList = []
     for (let i = 1; i <= pagesNumber; i++) paginationList.push(i)
@@ -73,12 +79,14 @@ export default class Home extends Component {
           </ul> : <div className="loader"></div>}
         </div>
         {!!paginationList.length && activePagination && <div className="home__Pagination">
-          <span className="home__PaginationTitle">Pages: </span>
+          <label className="home__PaginationTitle">Pages ({ paginationList.length }): </label>
+          <span onClick={() => this.handlePaginationClick(activePagination - 1)} className={activePagination !== 1 ? '' : 'notActive'}>&#8592;</span>
           <ul className="home__PaginationList">
-            {paginationList.map(num =>
+            {this.preparePaginationList.map(num =>
               <li key={num} className={num === activePagination ? 'active' : ''} onClick={() => this.handlePaginationClick(num)}>{num}</li>
             )}
           </ul>
+          <span onClick={() => this.handlePaginationClick(activePagination + 1)} className={activePagination !== paginationList.length ? '' : 'notActive'}>&#8594;</span>
         </ div>}
       </div>
     )
