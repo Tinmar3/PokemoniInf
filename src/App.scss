@@ -57,7 +57,8 @@ main {
   padding: 0 0 40px;
   margin-top: calc(97px + 70px);
   @media only screen and (max-width: 768px) {
-    margin-top: calc(71px + 30px);
+    margin-top: calc(71px + 50px);
+    padding-bottom: 15px;
   }
 }
 

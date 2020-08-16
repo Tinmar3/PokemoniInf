@@ -20,7 +20,7 @@ const pokemonList = (state = { activePagination: 1 }, action) => {
   }
 }
 
-const myPokemon = (state = mockData, action) => {
+const myPokemon = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TO_MY_POKEMON':
       return [...state, { name: action.payload.name, imgUrl: action.payload.imgUrl }]

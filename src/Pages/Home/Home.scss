@@ -1,4 +1,4 @@
-$height: 463px;
+$height: 670px;
 
 .home {
     @media only screen and (max-width: 768px) {
@@ -59,7 +59,7 @@ $height: 463px;
     align-items: baseline;
     @media only screen and (max-width: 768px) {
         position: fixed;
-        top: 80px;
+        top: 100px;
         left: 20px;
         width: calc(100% - 42px);
         border-radius: 5px 5px 0 0;
