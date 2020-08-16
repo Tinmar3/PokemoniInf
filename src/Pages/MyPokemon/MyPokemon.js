@@ -11,7 +11,7 @@ export default function MyPokemon (props) {
       { myPokemon.length ? <ul className="myPokemon__List">{myPokemon.map(pokemon =>
         <li key={ pokemon.name }>
           <Link to={'pokemonDetails/' + pokemon.name}>
-            <img src={pokemon.imgUrl} />
+            <img src={pokemon.imgUrl} alt={pokemon.name} />
             <span>{ pokemon.name }</span>
           </Link>
           <span className="myPokemon__Remove" title="Remove from My Pokemon" onClick={ () => removeFromMyPokemon(pokemon.name) }>&times;</span>

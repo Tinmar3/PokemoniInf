@@ -37,10 +37,14 @@
         height: 400px;
         width: 400px;
     }
+    @media only screen and (max-width: 992px) {
+        margin-right: auto;
+        margin-left: auto;
+    }
     @media only screen and (max-width: 768px) {
         width: 100%;
         height: auto;
-        margin-right: 0;
+        max-width: 400px;
     }
 }
 
@@ -58,15 +62,21 @@
             font-weight: bold;
         }
     }
+    @media only screen and (max-width: 992px) {
+        justify-content: center;
+    }
     @media only screen and (max-width: 768px) {
         flex-direction: column;
     }
 }
 
 .pokemonDetails__ItemList {
-    max-height: 400px;
+    max-height: 360px;
     overflow-y: auto;
     padding-right: 20px;
+    @media only screen and (max-width: 1200px) {
+        max-height: 300px;
+    }
     @media only screen and (max-width: 768px) {
         max-height: none;
     }

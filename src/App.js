@@ -22,7 +22,7 @@ function App () {
         <header>
           <div className="container">
             <NavLink exact={true} to="/" className="header__ImgWrap">
-              <img src="/pokedex.png" />
+              <img src="/pokedex.png" alt="pokedex" />
               <span>POKEDEX</span>
             </NavLink>
             <nav>
