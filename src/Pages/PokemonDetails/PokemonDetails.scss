@@ -67,4 +67,7 @@
     max-height: 400px;
     overflow-y: auto;
     padding-right: 20px;
+    @media only screen and (max-width: 768px) {
+        max-height: none;
+    }
 }

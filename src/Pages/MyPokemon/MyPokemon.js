@@ -18,7 +18,7 @@ export default class MyPokemon extends Component {
             <span className="myPokemon__Remove" title="Remove from My Pokemon" onClick={ () => removeFromMyPokemon(pokemon.name) }>&times;</span>
           </li>
         )}</ul>
-          : <p>Your Pokemon list seems to be empty. Go to homepage to add some Pokemons!</p> }
+          : <p>Your Pokemon list seems to be empty. Go to homepage and add some Pokemons!</p> }
       </div>
     )
   }

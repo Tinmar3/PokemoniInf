@@ -58,17 +58,17 @@ export default class Home extends Component {
   render () {
     const { pokemonItems, paginationList, paginationActive, showLoader } = this.state
     return (
-      <div className="container">
-        <div className="pokemonList__Wrap">
-          {!showLoader ? !!pokemonItems.length && <ul className="pokemonList">
+      <div className="container home">
+        <div className="home__PokemonListWrap">
+          {!showLoader ? !!pokemonItems.length && <ul className="home__PokemonList">
             {pokemonItems.map(pokemonItem =>
               <li key={pokemonItem.name}> <Link to={'pokemonDetails/' + pokemonItem.name}>{pokemonItem.name}</Link> </li>
             )}
           </ul> : <div className="loader"></div>}
         </div>
-        {!!paginationList.length && paginationActive && <div className="pagination">
-          <span className="pagination__Title">Pages: </span>
-          <ul className="pagination__List">
+        {!!paginationList.length && paginationActive && <div className="home__Pagination">
+          <span className="home__PaginationTitle">Pages: </span>
+          <ul className="home__PaginationList">
             {paginationList.map(num =>
               <li key={num} className={num === paginationActive ? 'active' : ''} onClick={() => this.handlePaginationClick(num)}>{num}</li>
             )}
